@@ -162,7 +162,7 @@
       </div>
       <div class="stat">
         <div class="ic"><svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2.47 5.01L16 5.82l-4 3.9.94 5.5L8 12.6 3.06 15.2 4 9.72 0 5.82l5.53-.81z"/></svg></div>
-        <div class="num">8</div>
+        <div class="num">13</div>
         <div class="lbl">Security Projects</div>
       </div>
       <div class="stat">
@@ -253,7 +253,12 @@
     {n:"purdue-directory-scraper", t:"Python", c:"#3776AB", d:"Honors project — Python OSINT scraper (requests + BeautifulSoup) that extracts public directory data to CSV."},
     {n:"porsche-marketplace-db", t:"SQL", c:"#4479A1", d:"Normalized 6-table MySQL auction database with 12 analytical queries — JOINs, subqueries and aggregates."},
     {n:"java-banking-system", t:"Java", c:"#ED8B00", d:"Banking app showcasing abstraction, inheritance & polymorphism with a Swing GUI (abstract Account, Saving/Current subclasses)."},
-    {n:"one-time-pad-cipher", t:"Python", c:"#3776AB", d:"Python implementation of the provably-unbreakable one-time-pad cipher over a 27-symbol alphabet."}
+    {n:"one-time-pad-cipher", t:"Python", c:"#3776AB", d:"Python implementation of the provably-unbreakable one-time-pad cipher over a 27-symbol alphabet."},
+    {n:"firewall-log-analyzer", t:"Python", c:"#39d353", d:"SOC CLI that triages a 44,000-event firewall log — OOP parser, timezone normalization, IPv4 classification, geo/deny analytics, plus a unit-test suite."},
+    {n:"osint-recon-toolkit", t:"OSINT", c:"#14e0a0", d:"Passive attack-surface mapping — resolves a domain and enumerates exposed services & CPEs via the Shodan InternetDB API, with DNS lookup and scraping utilities."},
+    {n:"rsa-key-rotation", t:"Crypto", c:"#e0c414", d:"Bulk key-rotation tool: decrypts a file store under a retired RSA key and re-encrypts under a new one using RSA-OAEP / SHA-256. Private keys excluded by design."},
+    {n:"breach-exposure-analyzer", t:"Python", c:"#3776AB", d:"Automates data-breach exposure triage — classifies workforce risk (LOW/MED/HIGH) and auto-drafts breach-notification emails. PII handled responsibly."},
+    {n:"phone-number-intelligence", t:"SQLite", c:"#4479A1", d:"Validates phone numbers against NANP rules from a SQLite database and searches by full number, area code, exchange, or customer name."}
   ];
   const folder = '<svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" style="color:#5b6472"><path d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3H7.5L6.06 1.56A1.75 1.75 0 004.82 1H1.75z"/></svg>';
   document.getElementById('pgrid').innerHTML = PROJECTS.map(p => `
