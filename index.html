@@ -99,6 +99,29 @@ h1 span{display:block}
 .anno text.big{fill:var(--ink);font-size:22px;font-weight:800;font-variation-settings:"wdth" 125}
 @media (prefers-reduced-motion:reduce){.packet{display:none}}
 
+/* ---------- featured project banner ---------- */
+.featured{border:1.5px solid var(--amber);background:linear-gradient(120deg,rgba(255,179,64,.10),rgba(255,179,64,0) 58%),var(--sheet);margin-bottom:40px}
+.featured-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+@media(max-width:880px){.featured-grid{grid-template-columns:1fr}}
+.fb-copy{padding:28px 30px}
+.ftag{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;letter-spacing:.9px;text-transform:uppercase;color:#1A1406;background:var(--amber);padding:5px 12px}
+.featured h2.ft{font-variation-settings:"wdth" 118;font-weight:850;font-size:clamp(27px,3.2vw,40px);line-height:1.02;letter-spacing:-.6px;margin:16px 0 0;border:0;padding:0}
+.ft-sub{color:var(--ink-2);font-size:16.5px;margin-top:11px;max-width:48ch}
+.ft-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.ft-meta span{font-size:12.5px;color:var(--ink-2);border:1px solid var(--rule);padding:3px 9px}
+.ft-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:22px}
+.ft-go{display:inline-flex;align-items:center;gap:8px;background:var(--amber);border:1.5px solid var(--amber);color:#1A1406;font-weight:700;font-size:15px;padding:11px 16px;text-decoration:none;transition:background .15s}
+.ft-go:hover{background:#FFC467}
+.ft-go svg{width:18px;height:18px}
+.ft-2nd{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--rule);color:var(--ink);padding:11px 16px;font-size:15px;font-weight:600;text-decoration:none;transition:background .15s,border-color .15s}
+.ft-2nd:hover{background:rgba(94,134,207,.18);border-color:var(--ink-2)}
+.fb-art{border-left:1.5px solid var(--rule);background:var(--sheet-2);padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:center}
+@media(max-width:880px){.fb-art{border-left:0;border-top:1.5px solid var(--rule)}}
+.fb-art a,.fb-art img{display:block}
+.fb-art img{width:100%;height:100%;object-fit:cover;object-position:top;border:1px solid rgba(94,134,207,.6);aspect-ratio:16/10}
+.fb-art .wide{grid-column:1/-1}
+.fb-art .wide img{aspect-ratio:16/8}
+
 /* ---------- section scaffolding ---------- */
 section{padding:84px 0}
 .sec-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:20px;border-bottom:1.5px solid var(--rule);padding-bottom:14px;margin-bottom:36px}
@@ -230,6 +253,27 @@ dialog button{background:transparent;border:1.5px solid var(--rule);color:var(--
 </nav>
 
 <header class="hero" id="top">
+  <div class="wrap">
+    <section class="featured" aria-label="Featured project: Active Directory Enterprise Lab">
+      <div class="featured-grid">
+        <div class="fb-copy">
+          <span class="ftag">★ Featured Project — Live &amp; Interactive</span>
+          <h2 class="ft">Active Directory Enterprise Lab</h2>
+          <p class="ft-sub">I built a Windows domain, monitored it with Splunk and Sysmon, ran a controlled attack to prove the monitoring works, then hardened and troubleshooted it — four VMs, start to finish.</p>
+          <div class="ft-meta"><span>Active Directory</span><span>Splunk SIEM</span><span>Sysmon</span><span>MITRE ATT&amp;CK</span><span>Troubleshooting</span></div>
+          <div class="ft-actions">
+            <a class="ft-go" href="https://singsukh05.github.io/active-directory-project/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>Open the interactive project</a>
+            <a class="ft-2nd" href="https://singsukh05.github.io/active-directory-project/report.pdf" target="_blank" rel="noopener">Technical report (PDF)</a>
+          </div>
+        </div>
+        <div class="fb-art">
+          <a class="wide" href="https://singsukh05.github.io/active-directory-project/" target="_blank" rel="noopener"><img src="assets/ad_splunk.jpg" alt="Splunk detecting the brute force: 20 failed-logon events" loading="lazy"></a>
+          <img src="assets/ad_crowbar.jpg" alt="RDP brute force from Kali" loading="lazy">
+          <img src="assets/ad_diagram.jpg" alt="Hand-drawn network design" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </div>
   <div class="wrap hero-grid">
     <div>
       <div class="id">
@@ -240,7 +284,7 @@ dialog button{background:transparent;border:1.5px solid var(--rule);color:var(--
         <p class="status"><span class="dot" aria-hidden="true"></span><b>Open to SOC and network security roles</b><br>Indianapolis, hybrid or remote</p>
       </div>
       <h1><span>Sukhwinder</span><span>Singh</span></h1>
-      <p class="lede">I watch networks, catch what's wrong, and fix it before users notice. <strong>Purdue Cybersecurity graduate, CompTIA Security+,</strong> with two years of hands-on IT and security work, including support for Meta's enterprise systems.</p>
+      <p class="lede">I watch networks, catch what's wrong, and fix it before users notice. <strong>Purdue Cybersecurity grad · CompTIA Security+ · 2 years hands-on</strong>, including support for Meta's systems.</p>
       <div class="actions">
         <a class="btn primary" href="assets/Sukhwinder_Singh_Resume.pdf" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Download resume</a>
@@ -324,6 +368,30 @@ dialog button{background:transparent;border:1.5px solid var(--rule);color:var(--
 <section id="projects">
   <div class="wrap">
     <div class="sec-head"><h2>Projects</h2><p>Every screenshot here is from my own lab. Click any image to see it full size.</p></div>
+
+    <!-- Active Directory (featured) -->
+    <article class="sheet">
+      <div class="shots">
+        <div class="main"><button class="shot" data-full="assets/ad_splunk.jpg" data-cap="Splunk detecting the brute force: 20 × Event 4625 (failed logon) then one 4624 (success)"><img src="assets/ad_splunk.jpg" alt="Splunk showing 20 failed-logon events" loading="lazy"><span>Brute force caught in Splunk</span></button></div>
+        <button class="shot" data-full="assets/ad_crowbar.jpg" data-cap="Crowbar on Kali returns RDP-SUCCESS against the Windows client"><img src="assets/ad_crowbar.jpg" alt="Crowbar RDP brute force" loading="lazy"><span>RDP brute force (Kali)</span></button>
+        <button class="shot" data-full="assets/ad_aduc.jpg" data-cap="Active Directory Users and Computers: departmental OUs, users, and security groups"><img src="assets/ad_aduc.jpg" alt="Active Directory Users and Computers" loading="lazy"><span>AD users &amp; OUs</span></button>
+      </div>
+      <div class="body">
+        <p class="kind">Live interactive project · build + detection + troubleshooting</p>
+        <h3>An Active Directory domain I built, attacked, and troubleshooted</h3>
+        <p>Four VMs on one network — a Windows Server 2022 domain controller, a Windows 10 client, an Ubuntu Splunk SIEM, and a Kali attacker. I built it, proved the monitoring catches a real attack, hardened it, and documented the day-to-day troubleshooting.</p>
+        <ul>
+          <li><b>Caught the attack.</b> An RDP brute force surfaced as 20 × Event 4625, then one 4624, with the source traced back to Kali.</li>
+          <li><b>Found the gaps.</b> Atomic Red Team mapped to MITRE ATT&amp;CK revealed what my logging couldn't yet see.</li>
+          <li><b>Ran the help desk.</b> Lockouts, expired accounts, permissions, and a broken workstation trust — each worked symptom → diagnosis → fix.</li>
+        </ul>
+        <div class="tblock"><table>
+          <tr><td>Stack</td><td>Windows Server 2022, Splunk, Sysmon, Kali, VirtualBox</td></tr>
+          <tr><td>Live</td><td><a href="https://singsukh05.github.io/active-directory-project/" target="_blank" rel="noopener">Interactive project site</a></td></tr>
+          <tr><td>Report</td><td><a href="https://singsukh05.github.io/active-directory-project/report.pdf" target="_blank" rel="noopener">Technical report (PDF)</a></td></tr>
+        </table></div>
+      </div>
+    </article>
 
     <!-- Zabbix -->
     <article class="sheet">
