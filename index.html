@@ -234,6 +234,29 @@ dialog button{background:transparent;border:1.5px solid var(--rule);color:var(--
 #em .x{position:absolute;top:12px;right:12px;width:34px;height:34px;padding:0;border:0;background:#E5484D;color:#fff;font-size:18px;line-height:34px;text-align:center;cursor:pointer;border-radius:50%}
 #em .x:hover{background:#F2555A}
 #em .copied{color:#7FE7B0;font-size:14px;margin-top:10px;min-height:20px}
+
+/* ---------- content polish ---------- */
+section{padding:94px 0}
+.sheet{margin-bottom:54px}
+.body h3{font-size:clamp(27px,2.7vw,34px);line-height:1.08;margin:7px 0 6px}
+.kind{font-size:13px;letter-spacing:.7px;text-transform:uppercase}
+.goal{margin:8px 0 12px;font-size:15px;color:var(--ink-2);border-left:3px solid var(--amber);padding:3px 0 3px 12px}
+.goal b{color:var(--amber);font-weight:700}
+.body>p.scn{color:var(--ink-2);max-width:60ch}
+.kw{color:var(--amber);font-weight:700}
+/* more-projects: clear, clickable cards */
+.more{border:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px}
+.more a{border:1.5px solid var(--rule);display:flex;flex-direction:column;gap:4px;padding:18px 20px;position:relative;transition:background .15s,border-color .15s,transform .15s}
+.more a:hover{background:rgba(94,134,207,.16);border-color:var(--amber);transform:translateY(-2px)}
+.more a::after{content:"↗";position:absolute;top:14px;right:16px;color:var(--amber);font-weight:800;font-size:16px}
+.more b{font-size:17px;padding-right:22px;margin-bottom:0}
+.more span{color:var(--ink-3);font-size:14.5px;line-height:1.45}
+/* cert placeholder badges */
+.badge-draft{clip-path:none;border-radius:50%;width:84px;height:84px;flex:0 0 84px;border:2px solid var(--rule);display:grid;place-items:center;font-size:18px;font-weight:800;color:var(--ink-2);background:rgba(11,34,85,.55);letter-spacing:.3px}
+.cert.pending .badge-draft{border-style:dashed;border-color:var(--amber);color:var(--amber)}
+/* skills: emphasize tier-1 / help-desk / IT-admin */
+.legend li.key{color:var(--ink);font-weight:700}
+.legend li.key::before{content:"";display:inline-block;width:6px;height:6px;background:var(--amber);margin-right:8px;vertical-align:2px}
 </style>
 </head>
 <body>
@@ -284,7 +307,7 @@ dialog button{background:transparent;border:1.5px solid var(--rule);color:var(--
         <p class="status"><span class="dot" aria-hidden="true"></span><b>Open to SOC and network security roles</b><br>Indianapolis, hybrid or remote</p>
       </div>
       <h1><span>Sukhwinder</span><span>Singh</span></h1>
-      <p class="lede">I watch networks, catch what's wrong, and fix it before users notice. <strong>Purdue Cybersecurity grad · CompTIA Security+ · 2 years hands-on</strong>, including support for Meta's systems.</p>
+      <p class="lede">I set up and secure <strong>Active Directory</strong> and Windows environments, manage users and access, and fix the tickets that keep a business running. <strong>Purdue Cybersecurity grad · CompTIA Security+.</strong></p>
       <div class="actions">
         <a class="btn primary" href="assets/Sukhwinder_Singh_Resume.pdf" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Download resume</a>
@@ -357,8 +380,8 @@ dialog button{background:transparent;border:1.5px solid var(--rule);color:var(--
         <p class="role">Bachelor's in Cybersecurity</p>
         <p class="org">Purdue University</p>
         <ul>
-          <li>Capstone: Infrastructure &amp; SNMP lead on the Zabbix Living Lab, monitoring a real server room.</li>
-          <li>Coursework in network defense, firewalls and IDS, incident response, and applied cryptography.</li>
+          <li>Capstone: led network infrastructure and SNMP monitoring for a live server room — architecture, Linux, and alerting.</li>
+          <li>Coursework in Active Directory and Windows administration, network defense, firewalls and IDS, incident response, and cryptography.</li>
         </ul>
       </li>
     </ol>
@@ -372,21 +395,24 @@ dialog button{background:transparent;border:1.5px solid var(--rule);color:var(--
     <!-- Active Directory (featured) -->
     <article class="sheet">
       <div class="shots">
-        <div class="main"><button class="shot" data-full="assets/ad_splunk.jpg" data-cap="Splunk detecting the brute force: 20 × Event 4625 (failed logon) then one 4624 (success)"><img src="assets/ad_splunk.jpg" alt="Splunk showing 20 failed-logon events" loading="lazy"><span>Brute force caught in Splunk</span></button></div>
-        <button class="shot" data-full="assets/ad_crowbar.jpg" data-cap="Crowbar on Kali returns RDP-SUCCESS against the Windows client"><img src="assets/ad_crowbar.jpg" alt="Crowbar RDP brute force" loading="lazy"><span>RDP brute force (Kali)</span></button>
-        <button class="shot" data-full="assets/ad_aduc.jpg" data-cap="Active Directory Users and Computers: departmental OUs, users, and security groups"><img src="assets/ad_aduc.jpg" alt="Active Directory Users and Computers" loading="lazy"><span>AD users &amp; OUs</span></button>
+        <div class="main"><button class="shot" data-full="assets/ad_aduc.jpg" data-cap="Active Directory Users and Computers: departmental OUs, users, and security groups"><img src="assets/ad_aduc.jpg" alt="Active Directory Users and Computers" loading="lazy"><span>Managing users &amp; groups in AD</span></button></div>
+        <button class="shot" data-full="assets/ad_splunk.jpg" data-cap="Splunk monitoring the domain — a spike of failed logons flagged for review"><img src="assets/ad_splunk.jpg" alt="Splunk monitoring the domain" loading="lazy"><span>Monitoring in Splunk</span></button>
+        <button class="shot" data-full="assets/ad_crowbar.jpg" data-cap="Security test: a simulated attack used to confirm the monitoring catches it"><img src="assets/ad_crowbar.jpg" alt="Security test" loading="lazy"><span>Security test &amp; hardening</span></button>
       </div>
       <div class="body">
-        <p class="kind">Live interactive project · build + detection + troubleshooting</p>
-        <h3>An Active Directory domain I built, attacked, and troubleshooted</h3>
-        <p>Four VMs on one network — a Windows Server 2022 domain controller, a Windows 10 client, an Ubuntu Splunk SIEM, and a Kali attacker. I built it, proved the monitoring catches a real attack, hardened it, and documented the day-to-day troubleshooting.</p>
+        <p class="kind">Windows Server · Active Directory administration</p>
+        <h3>Built and ran a Windows domain for a 100-user company</h3>
+        <p class="goal"><b>Goal:</b> stand up the kind of domain a real business runs on, then keep it healthy — manage the users, support the staff, and fix what breaks.</p>
+        <p class="scn">Four VMs acting as a small company: a Windows Server 2022 domain controller, Windows 10 staff computers, an Ubuntu Splunk server, and a test machine. I ran it end to end, from setup to the help desk.</p>
         <ul>
-          <li><b>Caught the attack.</b> An RDP brute force surfaced as 20 × Event 4625, then one 4624, with the source traced back to Kali.</li>
-          <li><b>Found the gaps.</b> Atomic Red Team mapped to MITRE ATT&amp;CK revealed what my logging couldn't yet see.</li>
-          <li><b>Ran the help desk.</b> Lockouts, expired accounts, permissions, and a broken workstation trust — each worked symptom → diagnosis → fix.</li>
+          <li><b>Managed <span class="kw">100+ users and groups.</span></b> Organized staff into departmental OUs and used security groups so permissions scale, instead of setting access one person at a time.</li>
+          <li><b>Resolved <span class="kw">help-desk tickets.</span></b> Worked the issues employees actually raise — <span class="kw">account lockouts</span>, password resets and unlocks, "access denied" to a shared folder, and a PC that fell off the domain — each one <span class="kw">troubleshooted</span> symptom → cause → fix.</li>
+          <li><b>Set up the environment.</b> Built the domain, DNS, Group Policy, file shares, and a Splunk + Sysmon monitoring pipeline across every machine.</li>
+          <li><b>Proved it was secure.</b> Ran a simulated attack, confirmed the monitoring caught it, then hardened accounts with logon hours and automatic expiry.</li>
         </ul>
         <div class="tblock"><table>
-          <tr><td>Stack</td><td>Windows Server 2022, Splunk, Sysmon, Kali, VirtualBox</td></tr>
+          <tr><td>Focus</td><td>User management · help-desk support · troubleshooting</td></tr>
+          <tr><td>Stack</td><td>Windows Server 2022, Active Directory, Splunk, Sysmon, VirtualBox</td></tr>
           <tr><td>Live</td><td><a href="https://singsukh05.github.io/active-directory-project/" target="_blank" rel="noopener">Interactive project site</a></td></tr>
           <tr><td>Report</td><td><a href="https://singsukh05.github.io/active-directory-project/report.pdf" target="_blank" rel="noopener">Technical report (PDF)</a></td></tr>
         </table></div>
@@ -401,13 +427,14 @@ dialog button{background:transparent;border:1.5px solid var(--rule);color:var(--
         <button class="shot" data-full="assets/z_latest.jpg" data-cap="Latest data pulled live from the server: CPU, memory, context switches"><img src="assets/z_latest.jpg" alt="Zabbix latest data" loading="lazy"><span>Live CPU and memory</span></button>
       </div>
       <div class="body">
-        <p class="kind">Capstone, team of three</p>
-        <h3>Taking a server room from zero monitoring to 235 live metrics</h3>
-        <p>The school's production server had no monitoring at all. I owned the infrastructure: getting our monitoring VM onto the right network, building the stack, and turning on SNMP safely.</p>
+        <p class="kind">Capstone · network infrastructure &amp; architecture</p>
+        <h3>Brought monitoring to a university's live server-room network</h3>
+        <p class="goal"><b>Goal:</b> give the university real-time visibility into a production server room that had no monitoring — so network and hardware problems get caught before users ever feel them.</p>
+        <p class="scn">I owned the network and infrastructure: getting the monitoring server onto the right subnet, designing how it would reach the production hardware, and standing up the full stack.</p>
         <ul>
-          <li><b>Solved the blocker.</b> The VM was stuck behind NAT, so I bridged a second NIC onto the server subnet and got 1.5 ms with zero packet loss.</li>
-          <li><b>Built the stack from scratch</b> on Kali: Zabbix 7.0, Apache, MariaDB, and PHP.</li>
-          <li><b>Least privilege on a live server.</b> I opened only UDP/161 in iptables, limited SNMP to the local /24, and made it survive reboots.</li>
+          <li><b>Solved a <span class="kw">network blocker.</span></b> The monitoring server was stuck behind NAT, so I bridged a second NIC onto the server subnet and got 1.5 ms with zero packet loss.</li>
+          <li><b>Designed the architecture</b> and built the monitoring stack from scratch on Linux — Zabbix 7.0, Apache, MariaDB, and PHP.</li>
+          <li><b>Secured it with least privilege.</b> Opened only UDP/161 in iptables, limited SNMP to the local /24, and made it survive reboots.</li>
         </ul>
         <div class="tblock"><table>
           <tr><td>Role</td><td>Infrastructure &amp; SNMP lead</td></tr>
@@ -426,13 +453,14 @@ dialog button{background:transparent;border:1.5px solid var(--rule);color:var(--
         <button class="shot" data-full="assets/pf_zone.jpg" data-cap="BIND DNS zone records: A, NS, MX, CNAME"><img src="assets/pf_zone.jpg" alt="BIND DNS zone records" loading="lazy"><span>BIND DNS zones</span></button>
       </div>
       <div class="body">
-        <p class="kind">Firewall and network design</p>
-        <h3>A segmented network where the DMZ can't reach the LAN</h3>
-        <p>I designed a three-zone network on pfSense so public-facing servers live in a DMZ, and a compromise there can't move sideways into the internal network.</p>
+        <p class="kind">Firewall &amp; network security</p>
+        <h3>Locked down a network so a hacked public server can't reach the rest</h3>
+        <p class="goal"><b>Goal:</b> secure a network the way you'd protect an office — put public-facing servers in their own walled-off zone and control the traffic, so a breach there can't spread to staff computers and data.</p>
+        <p class="scn">I designed and configured a firewall (pfSense) with three separated zones and wrote the rules that decide exactly what traffic is allowed between them.</p>
         <ul>
-          <li><b>Segmentation that holds.</b> Web traffic is allowed into the DMZ, and DMZ-to-LAN traffic is blocked.</li>
-          <li><b>Network services.</b> DHCP with MAC reservations for servers, and BIND DNS zones with A, MX, CNAME, and PTR records.</li>
-          <li><b>Hardened.</b> I turned off unused DNS and DHCP services, then proved isolation with rule testing and log review.</li>
+          <li><b>Blocked <span class="kw">lateral movement.</span></b> Allowed web traffic into the public zone (DMZ) but blocked that zone from reaching the internal network — so one compromised server can't become a foothold.</li>
+          <li><b>Ran the core network services.</b> DHCP with reserved addresses for servers, and DNS records for the whole network.</li>
+          <li><b>Hardened and verified.</b> Turned off unused services, then proved the isolation held with rule testing and firewall-log review.</li>
         </ul>
         <div class="tblock"><table>
           <tr><td>Tools</td><td>pfSense 2.7, BIND, DHCP, VMware</td></tr>
@@ -450,13 +478,14 @@ dialog button{background:transparent;border:1.5px solid var(--rule);color:var(--
         <button class="shot" data-full="assets/ws_03_slowloris.jpg" data-cap="Slowloris attack capture holding connections open"><img src="assets/ws_03_slowloris.jpg" alt="Slowloris capture" loading="lazy"><span>Slowloris capture</span></button>
       </div>
       <div class="body">
-        <p class="kind">Detection engineering</p>
-        <h3>Attacking my own web server, then catching every attack</h3>
-        <p>In an isolated lab I launched real denial-of-service attacks, wrote the detection rules, and compared each attack on the wire against a clean baseline.</p>
+        <p class="kind">Penetration testing &amp; defense</p>
+        <h3>Attacked a server to find its weak points, then built the defenses</h3>
+        <p class="goal"><b>Goal:</b> think like an attacker to expose how a web server fails under attack, then put detection in place so a real intrusion gets caught immediately.</p>
+        <p class="scn">In an isolated lab I ran real denial-of-service attacks against my own server, measured the damage, then wrote the detection rules and verified they fired.</p>
         <ul>
-          <li><b>3,262 Suricata alerts</b> from my custom rules, covering SYN floods, connection floods, and Slowloris.</li>
-          <li><b>Proved the impact.</b> The slow-HTTP attack dropped the server from 500 available connections to 0 in six seconds.</li>
-          <li><b>Evidence kept.</b> PCAPs, alert logs, and a written report are published so the findings can be replayed.</li>
+          <li><b><span class="kw">Pen-tested</span> the server.</b> Launched SYN floods, connection floods, and Slowloris, and proved the impact — a slow-HTTP attack dropped it from 500 connections to 0 in six seconds.</li>
+          <li><b>Built the <span class="kw">detection.</span></b> Wrote custom Suricata IDS rules that raised <span class="kw">3,262 alerts</span> across every attack type.</li>
+          <li><b>Kept the evidence.</b> Saved packet captures, alert logs, and a written report so the findings can be replayed.</li>
         </ul>
         <div class="tblock"><table>
           <tr><td>Tools</td><td>Suricata, Wireshark, hping3, slowhttptest</td></tr>
@@ -520,12 +549,10 @@ Drafted 37 breach-notification emails for review</pre>
     </article>
 
     <div class="more" aria-label="More projects on GitHub">
-      <a href="https://github.com/SingSukh05/osint-recon-toolkit" target="_blank" rel="noopener"><b>OSINT recon toolkit</b><span>Passive attack-surface mapping with Shodan InternetDB and DNS</span></a>
-      <a href="https://github.com/SingSukh05/linux-firewall-and-file-integrity-labs" target="_blank" rel="noopener"><b>Linux firewall and file integrity</b><span>Default-deny iptables and a SHA-256 tamper monitor</span></a>
-      <a href="https://github.com/SingSukh05/healthnetwork-security-assessment" target="_blank" rel="noopener"><b>Healthcare network assessment</b><span>12-asset threat model and Nmap recon</span></a>
-      <a href="https://github.com/SingSukh05/sha1-collision-attack" target="_blank" rel="noopener"><b>SHA-1 collision</b><span>Reproduced SHATTERED with a verification script</span></a>
-      <a href="https://github.com/SingSukh05/rsa-key-rotation" target="_blank" rel="noopener"><b>RSA key rotation</b><span>Bulk re-encryption with RSA-OAEP and SHA-256</span></a>
-      <a href="https://github.com/SingSukh05" target="_blank" rel="noopener"><b>All 15 repositories</b><span>Everything else on GitHub</span></a>
+      <a href="https://github.com/SingSukh05/osint-recon-toolkit" target="_blank" rel="noopener"><b>OSINT recon toolkit</b><span>Maps a target's internet-facing attack surface with Shodan and DNS — the reconnaissance step before an assessment.</span></a>
+      <a href="https://github.com/SingSukh05/linux-firewall-and-file-integrity-labs" target="_blank" rel="noopener"><b>Linux firewall &amp; file-integrity monitor</b><span>A default-deny iptables firewall plus a SHA-256 tamper-detection monitor on Kali Linux.</span></a>
+      <a href="https://github.com/SingSukh05/healthnetwork-security-assessment" target="_blank" rel="noopener"><b>Healthcare network assessment</b><span>Threat-modeled 12 assets and ran Nmap reconnaissance to map the risks.</span></a>
+      <a href="https://github.com/SingSukh05" target="_blank" rel="noopener"><b>All projects on GitHub</b><span>Every repository — Python security tooling, cryptography, SQL, and more.</span></a>
     </div>
   </div>
 </section>
@@ -556,10 +583,10 @@ Drafted 37 breach-notification emails for review</pre>
   <div class="wrap">
     <div class="sec-head"><h2>Skills</h2><p>Grouped by the job each skill does.</p></div>
     <div class="legend">
-      <div><h4>Detect and respond</h4><ul><li>SIEM (Splunk)</li><li>Snort and Suricata IDS</li><li>Alert triage</li><li>Incident response</li><li>Log analysis</li><li>MITRE ATT&amp;CK</li></ul></div>
-      <div><h4>Networks</h4><ul><li>TCP/IP, DNS, DHCP</li><li>VPN, LAN/WAN, VLANs</li><li>pfSense and iptables</li><li>Wireshark</li><li>Zabbix, PRTG, SNMP</li></ul></div>
-      <div><h4>Systems</h4><ul><li>Active Directory</li><li>Windows Server</li><li>Linux: Ubuntu, Kali, CentOS</li><li>Patch and vulnerability management</li><li>Nmap, OpenVAS</li></ul></div>
-      <div><h4>Automation</h4><ul><li>Python</li><li>PowerShell and Bash</li><li>SQL</li><li>AI-assisted automation</li><li>Technical documentation</li></ul></div>
+      <div><h4>Detect and respond</h4><ul><li class="key">SIEM (Splunk)</li><li class="key">Incident response</li><li class="key">Alert triage</li><li class="key">Log analysis</li><li>Snort and Suricata IDS</li><li>MITRE ATT&amp;CK</li></ul></div>
+      <div><h4>Networks</h4><ul><li class="key">TCP/IP, DNS, DHCP</li><li class="key">VPN, LAN/WAN, VLANs</li><li>pfSense and iptables</li><li>Wireshark</li><li>Zabbix, PRTG, SNMP</li></ul></div>
+      <div><h4>Systems</h4><ul><li class="key">Active Directory</li><li class="key">Windows Server</li><li class="key">Patch and vulnerability management</li><li>Linux: Ubuntu, Kali, CentOS</li><li>Nmap, OpenVAS</li></ul></div>
+      <div><h4>Automation</h4><ul><li class="key">PowerShell and Bash</li><li class="key">Technical documentation</li><li>Python</li><li>SQL</li><li>AI-assisted automation</li></ul></div>
     </div>
   </div>
 </section>
